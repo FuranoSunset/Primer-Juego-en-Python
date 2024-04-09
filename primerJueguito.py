@@ -23,6 +23,8 @@ enemigo_posicion = [random.randint(0, ANCHO - enemigo_size), 0]
 ventana = pygame.display.set_mode((ANCHO, ALTO))
 
 game_over = False
+
+#Controlar el tiempo
 clock = pygame.time.Clock()
 
 #Funcion Colisiones
@@ -39,6 +41,7 @@ def detectar_colision (jugador_posicion, enemigo_posicion):
 
 
 while not game_over:
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -71,5 +74,6 @@ while not game_over:
 
     #Dibujar enemigo
     pygame.draw.rect(ventana, color_azul, (enemigo_posicion[0],enemigo_posicion[1],enemigo_size,enemigo_size))
-    clock.tick(100)
     pygame.display.update()
+    clock.tick(30)
+    
